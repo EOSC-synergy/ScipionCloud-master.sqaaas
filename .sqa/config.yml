@@ -1,0 +1,18 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: main
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+sqa_criteria:
+  QC.Sty:
+    repos:
+      this_repo:
+        commands:
+        - hadolint master-image/Dockerfile --ignore SC2046 --ignore DL3002 --ignore
+          DL3059 --ignore SC2086 --ignore DL3086 --ignore DL3008 --ignore DL3003 --ignore
+          DL4006 --ignore SC2028
+        container: qc.sty_muggy-pear-deer
+timeout: 600
